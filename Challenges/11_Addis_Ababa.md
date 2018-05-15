@@ -42,7 +42,7 @@ Perhaps we can clobber a single instruction, as in a clock glitch or voltage gli
 	44a6:  32d0 f000      bis	#0xf0, sr
 	44aa:  fd3f           jmp	#0x44a6 <__stop_progExec__+0x0>
 
-Just ignore for a moment whether or not the MSP430 has any code protection, or whether or not this device is running code from flash.  Let's try it anyway.
+Just ignore for a moment whether or not this device has any code protection, or is running code from flash.  Let's try it anyway.
 
 The following input strings should implement our attack:
 
