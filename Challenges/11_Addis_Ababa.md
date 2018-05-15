@@ -23,7 +23,7 @@ There are a limited number of things that we can do with this format string vuln
 
 ### Attack
 
-Perhaps we can overwrite a single instruction, as in a clock glitch or voltage glitch attack, and affect the flow of execution.  The following section of code includes a conditional jump just before the call to unlock_door().  If we knock out either the check value at 0x448C or the conditional jump at 0x448E, we can unlock the door despite failing the authentication check.
+Perhaps we can clobber a single instruction, as in a clock glitch or voltage glitch attack, and affect the flow of execution.  The following section of code includes a conditional jump just before the call to unlock_door().  If we knock out either the check value at 0x448C or the conditional jump at 0x448E, we can unlock the door despite failing the authentication check.
 
 	447c:  b012 c845      call	#0x45c8 <printf>            ; Execute format string here.
 	4480:  2153           incd	sp
