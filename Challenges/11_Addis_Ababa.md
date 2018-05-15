@@ -29,7 +29,7 @@ Perhaps we can clobber a single instruction, as in a clock glitch or voltage gli
 	4480:  2153           incd	sp
 	4482:  3f40 0a00      mov	#0xa, r15
 	4486:  b012 5045      call	#0x4550 <putchar>
-	448a:  8193 0000      tst	0x0(sp)						; Overwrite 0x0000,
+	448a:  8193 0000      tst	0x0(sp)                     ; Overwrite 0x0000,
 	448e:  0324           jz	#0x4496 <main+0x5e>         ; ...or overwrite conditional jump.
 	4490:  b012 da44      call	#0x44da <unlock_door>       ; Profit here either way.
 	4494:  053c           jmp	#0x44a0 <main+0x68>
