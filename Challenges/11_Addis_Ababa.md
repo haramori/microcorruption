@@ -17,7 +17,7 @@ This solution utilizes a format string vulnerability to inject a code fault at a
 
 The device requires an input string in the format &lt;username&gt;:&lt;password&gt;.  The total length of the input string, including null terminator, may not be longer than 20 characters.
 
-On analysis of the disassembled code, the input is written back out using printf(), which supports %s, %x and %n.  It does not support '\\' escapes, '$' parameters, or any other parameters.  The limited parameter options combined with the limited input size makes the format string vulnerability unsuitable for writing arbitrary values.
+On analysis of the disassembled code, the input is written back out using printf().  The user input is passed to printf() as the format string, which makes this a format string vulnerability.  This implementation of printf() supports %s, %x and %n.  It does not support '\\' escapes, '$' parameters, or any other parameters.  The limited parameter options combined with the limited input size makes the format string vulnerability unsuitable for writing arbitrary values.
 
 There are a limited number of things that we can do with this format string vulnerability.  We can provide an address to overwrite within the input string, and %x can be used to consume unwanted parameters so that %n can be aligned with the address parameter.  However, %n can only be used to write small values.  We don't have appropriate parameters or input string length to build output characters up to any arbitrary number for %n to write.  So while we can aim, we are very limited in what we can write.
 
